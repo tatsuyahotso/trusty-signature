@@ -5,7 +5,7 @@ import "./globals.css";
 const siteUrl = "https://signature-checker.vercel.app";
 const siteName = "Trusty Signature";
 const description =
-  "Review Ethereum wallet activity and identify risky signatures with Trusty Signature.";
+  "Review Ethereum wallet activity and uncover potentially dangerous signatures with Trusty Signature.";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     description,
     images: [
       {
-        url: "https://raw.githubusercontent.com/tatsuyahotso/trusty-signature/refs/heads/main/public/thumbnail2.png",
+        url: "/thumbnail2.png",
         width: 1200,
         height: 630,
         alt: `${siteName} wallet security checker`,
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteName,
     description,
-    images: ["https://raw.githubusercontent.com/tatsuyahotso/trusty-signature/refs/heads/main/public/thumbnail2.png"],
+    images: ["/thumbnail2.png"],
   },
   robots: {
     index: true,
