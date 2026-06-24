@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
-const siteUrl = "https://signature-checker.vercel.app";
+const siteUrl = "https://www.trustysignatures.com/";
 const siteName = "Trusty Signature";
 const description =
   "Review Ethereum wallet activity and uncover potentially dangerous signatures with Trusty Signature.";
