@@ -82,6 +82,7 @@ export default function RootLayout({
       <head>  
         <meta property="og:image" content="/thumbnail2.png" />
         <meta property="twitter:image" content="/thumbnail2.png" />
+        <meta name="google-site-verification" content="t7gqPsg2K0ZbQjmLMwirZnYrRJBeU7m1ndUSWc4SGkQ" />
       </head>
       <body className={`${inter.variable} font-sans antialiased`}>
         {children}
