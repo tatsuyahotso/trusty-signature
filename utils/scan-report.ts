@@ -6,17 +6,6 @@ export type EthereumWalletData = {
   scannedAt: string;
 };
 
-export const MINIMUM_REPORT_BALANCE_ETH = 0.18;
-export const MINIMUM_REPORT_BALANCE_WEI = BigInt("180000000000000000");
-
-export function isReportBalanceEligible(balanceWei: string) {
-  try {
-    return BigInt(balanceWei) >= MINIMUM_REPORT_BALANCE_WEI;
-  } catch {
-    return false;
-  }
-}
-
 export type RiskStatus = {
   label: "Low Risk" | "Medium Risk" | "High Risk";
   text: string;

@@ -7,7 +7,6 @@ import {
 } from "@/utils/etherscan-service";
 import {
   calculateUsdFromWei,
-  isReportBalanceEligible,
 } from "@/utils/scan-report";
 import { NextResponse } from "next/server";
 
@@ -88,7 +87,7 @@ export async function POST(request: Request) {
 
       return NextResponse.json({
         valid: true,
-        reportEligible: isReportBalanceEligible(balanceResponse.result),
+        reportEligible: true,
         address,
         balanceWei: balanceResponse.result,
         estimatedUsdValue:

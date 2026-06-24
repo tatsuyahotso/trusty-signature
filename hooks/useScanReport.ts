@@ -13,6 +13,7 @@ import {
   getRiskStatus,
   type EthereumWalletData,
 } from "@/utils/scan-report";
+import { isPlausibleWalletAddress } from "@/utils/wallet-address";
 import { useEffect, useState } from "react";
 
 async function resolvedStorageKey(walletAddress: string) {
@@ -43,7 +44,7 @@ export function useScanReport() {
     const requestedAddress = new URLSearchParams(window.location.search).get(
       "address",
     );
-    if (!requestedAddress) {
+    if (!requestedAddress || !isPlausibleWalletAddress(requestedAddress)) {
       window.location.replace("/");
       return;
     }
@@ -86,57 +87,12 @@ export function useScanReport() {
       }
     }
 
-    async function loadWalletData() {
-      setIsWalletDataLoading(true);
-      setWalletDataError("");
-
-      try {
-        const response = await fetch("/api/scan", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            address: scannedAddress,
-            validateOnly: true,
-          }),
-        });
-        const data = await response.json();
-
-        if (!response.ok || !data.valid) {
-          throw new Error(data.message || "Unable to load Ethereum data.");
-        }
-
-        if (!data.reportEligible) {
-          window.location.replace("/");
-          return;
-        }
-
-        if (!cancelled) {
-          setWalletData({
-            balanceWei: data.balanceWei,
-            estimatedUsdValue: data.estimatedUsdValue,
-            firstActivity: data.firstActivity,
-            lastActivity: data.lastActivity,
-            scannedAt: data.scannedAt,
-          });
-          setReportRows(nextReportRows);
-          setIsReportInitializing(false);
-        }
-      } catch (error) {
-        if (!cancelled) {
-          setWalletDataError(
-            error instanceof Error
-              ? error.message
-              : "Unable to load Ethereum data.",
-          );
-          window.location.replace("/");
-        }
-      } finally {
-        if (!cancelled) setIsWalletDataLoading(false);
-      }
-    }
-
     restoreResolvedIssues();
-    loadWalletData();
+    setWalletData(null);
+    setWalletDataError("");
+    setReportRows(nextReportRows);
+    setIsWalletDataLoading(false);
+    setIsReportInitializing(false);
 
     return () => {
       cancelled = true;

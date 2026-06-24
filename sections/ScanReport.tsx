@@ -22,13 +22,9 @@ export default function ScanReport() {
 
       <section className="mx-auto max-w-[1280px] px-4 py-10 sm:px-6 sm:py-14 lg:px-8 lg:py-16">
         <ReportHeader
-          address={report.address}
-          copied={report.copied}
           riskStatus={report.riskStatus}
           walletData={report.walletData}
-          walletDataError={report.walletDataError}
           isWalletDataLoading={report.isWalletDataLoading}
-          onCopyAddress={report.copyAddress}
         />
 
         <RiskOverview

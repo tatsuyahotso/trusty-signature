@@ -47,23 +47,6 @@ export function useHero() {
         );
       }
 
-      const response = await fetch("/api/scan", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ address: value, validateOnly: true }),
-      });
-      const data = await response.json();
-
-      if (!response.ok || !data.valid) {
-        setAddress("");
-        return;
-      }
-
-      if (!data.reportEligible) {
-        setAddress("");
-        return;
-      }
-
       window.location.href = `/scan-report?address=${encodeURIComponent(value)}`;
     } catch {
       setAddress("");

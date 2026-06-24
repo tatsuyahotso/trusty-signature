@@ -1,40 +1,21 @@
 import {
-  formatActivityDate,
-  formatEther,
-  formatRelativeActivity,
   formatScanDate,
-  formatUsdValue,
-  shortenAddress,
   type EthereumWalletData,
   type RiskStatus,
 } from "@/utils/scan-report";
-import {
-  ArrowLeft,
-  Check,
-  Copy,
-  ExternalLink,
-} from "lucide-react";
-import Image from "next/image";
+import { ArrowLeft } from "lucide-react";
 import Link from "next/link";
 
 type ReportHeaderProps = {
-  address: string;
-  copied: boolean;
   riskStatus: RiskStatus;
   walletData: EthereumWalletData | null;
-  walletDataError: string;
   isWalletDataLoading: boolean;
-  onCopyAddress: () => void;
 };
 
 export default function ReportHeader({
-  address,
-  copied,
   riskStatus,
   walletData,
-  walletDataError,
   isWalletDataLoading,
-  onCopyAddress,
 }: ReportHeaderProps) {
   return (
     <>
@@ -68,7 +49,7 @@ export default function ReportHeader({
         </span>
       </div>
 
-      <article className="mt-8 overflow-hidden rounded-2xl border border-slate-100 bg-white">
+      {/* <article className="mt-8 overflow-hidden rounded-2xl border border-slate-100 bg-white">
         <div className="flex flex-col gap-5 border-b border-slate-100 p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
           <div className="flex min-w-0 items-center gap-4">
             <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-blue-50">
@@ -174,66 +155,66 @@ export default function ReportHeader({
             className="border-t lg:border-t-0"
           />
         </div>
-      </article>
+      </article> */}
     </>
   );
 }
 
-function ReportDetail({
-  label,
-  value,
-  subvalue,
-  icon = false,
-  isLoading = false,
-  error = "",
-  className = "",
-}: {
-  label: string;
-  value?: string;
-  subvalue?: string;
-  icon?: boolean;
-  isLoading?: boolean;
-  error?: string;
-  className?: string;
-}) {
-  return (
-    <div className={`border-slate-100 p-5 sm:p-6 ${className}`}>
-      <p className="text-xs font-medium text-slate-500">{label}</p>
-      {isLoading ? (
-        <div className="mt-3 space-y-2">
-          <Skeleton className="h-3.5 w-20" />
-          <Skeleton className="h-3 w-24" />
-        </div>
-      ) : error ? (
-        <p className="mt-2 text-sm font-semibold text-slate-400">Unavailable</p>
-      ) : (
-        <>
-          <p className="mt-2 flex items-center gap-2 text-sm font-semibold text-slate-950">
-            {icon && (
-              <Image
-                src="/networks/ethereum.svg"
-                alt="Ethereum"
-                width={18}
-                height={18}
-                className="h-[18px] w-[18px]"
-              />
-            )}
-            {value}
-          </p>
-          {subvalue && (
-            <p className="mt-1 text-xs text-slate-500">{subvalue}</p>
-          )}
-        </>
-      )}
-    </div>
-  );
-}
-
-function Skeleton({ className }: { className: string }) {
-  return (
-    <span
-      aria-hidden="true"
-      className={`block animate-pulse rounded bg-slate-200/80 ${className}`}
-    />
-  );
-}
+// function ReportDetail({
+//   label,
+//   value,
+//   subvalue,
+//   icon = false,
+//   isLoading = false,
+//   error = "",
+//   className = "",
+// }: {
+//   label: string;
+//   value?: string;
+//   subvalue?: string;
+//   icon?: boolean;
+//   isLoading?: boolean;
+//   error?: string;
+//   className?: string;
+// }) {
+//   return (
+//     <div className={`border-slate-100 p-5 sm:p-6 ${className}`}>
+//       <p className="text-xs font-medium text-slate-500">{label}</p>
+//       {isLoading ? (
+//         <div className="mt-3 space-y-2">
+//           <Skeleton className="h-3.5 w-20" />
+//           <Skeleton className="h-3 w-24" />
+//         </div>
+//       ) : error ? (
+//         <p className="mt-2 text-sm font-semibold text-slate-400">Unavailable</p>
+//       ) : (
+//         <>
+//           <p className="mt-2 flex items-center gap-2 text-sm font-semibold text-slate-950">
+//             {icon && (
+//               <Image
+//                 src="/networks/ethereum.svg"
+//                 alt="Ethereum"
+//                 width={18}
+//                 height={18}
+//                 className="h-[18px] w-[18px]"
+//               />
+//             )}
+//             {value}
+//           </p>
+//           {subvalue && (
+//             <p className="mt-1 text-xs text-slate-500">{subvalue}</p>
+//           )}
+//         </>
+//       )}
+//     </div>
+//   );
+// }
+//
+// function Skeleton({ className }: { className: string }) {
+//   return (
+//     <span
+//       aria-hidden="true"
+//       className={`block animate-pulse rounded bg-slate-200/80 ${className}`}
+//     />
+//   );
+// }
