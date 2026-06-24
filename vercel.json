@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "signatures.solutions"
+        }
+      ],
+      "destination": "https://www.signatures.solutions/$1",
+      "permanent": true
+    }
+  ]
+}
