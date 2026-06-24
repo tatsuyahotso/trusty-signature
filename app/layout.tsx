@@ -13,6 +13,7 @@ const inter = Inter({
   display: "swap",
 });
 
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
@@ -46,7 +47,7 @@ export const metadata: Metadata = {
     description,
     images: [
       {
-        url: "/thumbnail2.png",
+        url: "https://raw.githubusercontent.com/tatsuyahotso/trusty-signature/refs/heads/main/public/thumbnail2.png",
         width: 1200,
         height: 630,
         alt: `${siteName} wallet security checker`,
@@ -57,7 +58,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteName,
     description,
-    images: ["/thumbnail2.png"],
+    images: ["https://raw.githubusercontent.com/tatsuyahotso/trusty-signature/refs/heads/main/public/thumbnail2.png"],
   },
   robots: {
     index: true,
