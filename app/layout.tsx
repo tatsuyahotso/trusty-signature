@@ -73,7 +73,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      
+      <head>  
+        <meta property="og:image" content="/thumbnail2.png" />
+        <meta property="twitter:image" content="/thumbnail2.png" />
+      </head>
       <body className={`${inter.variable} font-sans antialiased`}>
         {children}
       </body>
