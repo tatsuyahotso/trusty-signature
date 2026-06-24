@@ -19,6 +19,7 @@ export function useHero() {
 
     if (!value) {
       setAddress("");
+      setScanError("Invalid address");
       return;
     }
 

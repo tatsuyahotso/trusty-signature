@@ -10,7 +10,7 @@ export default function HowItWorks() {
             How it works
           </p>
           <h2 className="mt-5 text-[34px] font-semibold tracking-[-.045em]  text-slate-950 sm:text-[48px]">
-            Wallet Security Insights{" "}
+           Protect Your Wallet
           </h2>
           <p className="mt-5 max-w-[320px] sm:mx-auto text-base leading-7 text-slate-600 sm:text-lg sm:leading-8">
             Receive a clear, read-only report without connecting your wallet.

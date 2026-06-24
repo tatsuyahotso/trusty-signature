@@ -49,6 +49,12 @@ export function useSignatureSearch() {
     const value = inputValue.trim();
     setError("");
 
+    if (!value) {
+      setInputValue("");
+      setError("Please enter an address or key.");
+      return;
+    }
+
     if (!/^[A-Za-z0-9]{26,}$/.test(value)) {
       setError(
         "Please enter a valid address or key in the correct format (for example, 0x...).",

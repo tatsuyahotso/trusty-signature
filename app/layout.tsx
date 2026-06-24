@@ -5,7 +5,7 @@ import "./globals.css";
 const siteUrl = "https://www.trustysignatures.com/";
 const siteName = "Trusty Signature";
 const description =
-  "Review Ethereum wallet activity and uncover potentially dangerous signatures with Trusty Signature.";
+  "Scan and remove malicious wallet signatures with Trusty Signatures. Stay protected by deathorizing hidden phishing contracts before they drain your assets.";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -28,6 +28,12 @@ export const metadata: Metadata = {
     "token approvals",
     "crypto security",
     "Trusty Signature",
+    "malicious wallet signatures",
+    "phishing contracts",
+    "crypto asset protection",
+    "signature scanner",
+    "wallet safety",
+    
   ],
   alternates: {
     canonical: "/",
